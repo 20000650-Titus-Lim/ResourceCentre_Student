@@ -134,16 +134,16 @@ assertNotNull("Test if there is valid Chromebook arraylist to loan from", chrome
 		Boolean ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "7-7-2021");
 		assertTrue("Test if an available item is ok to loan?", ok);
 		
-		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "7-7-2021");
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB001", "7-7-2021");
 		assertFalse("Test if an same item is Not ok to loan again?",ok);
 		
 		ResourceCentre.addChromebook(chromebookList, cb2);
 		cb2.setIsAvailable(false);
 		
-		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0012", "7-7-2021");
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB002", "7-7-2021");
 		assertFalse("Test that un-available item is Not ok to loan again?",ok);
 		
-		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0013", "7-7-2021");
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB003", "7-7-2021");
 		assertFalse("Test that non-existing item is Not ok to loan again?",ok);
 		
 	}
