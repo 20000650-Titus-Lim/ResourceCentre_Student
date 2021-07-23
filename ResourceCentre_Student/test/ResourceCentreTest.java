@@ -121,7 +121,17 @@ public class ResourceCentreTest {
 	public void testDoLoanCamcorder() {
 		//fail("Not yet implemented");
 		// write your code here
+		// Test if Item list is not null but empty, so that can add a new item
+		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
 		
+		//Given an empty list, after adding 2 items, test if the size of the list is 2
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		ResourceCentre.addCamcorder(camcorderList, cc2);
+		assertEquals("Test if that Camcorder arraylist size is 2?", 2, camcorderList.size());
+		
+		//Test that the doLoan method returns true when an item is loaned
+		boolean loanStat = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "16 May");
+		assertTrue("Check that loaned camcorder items return true", loanStat);
 	}
 	
 	@Test
