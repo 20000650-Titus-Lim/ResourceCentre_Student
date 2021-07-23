@@ -49,7 +49,7 @@ public class ResourceCentreTest {
 	}
 
 	@Test
-	public void testAddChromebook() {
+	public void testAddChromebook() {  //Titus
 		// fail("Not yet implemented");
 		// write your code here
 		// Item list is not null, so that can add a new item
@@ -95,7 +95,7 @@ public class ResourceCentreTest {
 	}
 
 	@Test
-	public void testRetrieveAllChromebook() {
+	public void testRetrieveAllChromebook() {  //Titus & Qisthina
 		// fail("Not yet implemented");
 		// write your code here
 		// Test if Item list is not null but empty, so that can add a new item
@@ -124,7 +124,7 @@ public class ResourceCentreTest {
 	}
 
 	@Test
-	public void testDoLoanCamcorder() {
+	public void testDoLoanCamcorder() {  //Titus
 		// fail("Not yet implemented");
 		// write your code here
 		// Test if Item list is not null but empty, so that can add a new item
@@ -165,17 +165,43 @@ public class ResourceCentreTest {
 	}
 
 	@Test
-	public void testDoReturnCamcorder() {
+	public void testDoReturnCamcorder() {  //Vedha
 		// fail("Not yet implemented");
 		// write your code here
-
+		//boundary test
+		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
+		//error test
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		Boolean isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0011");
+		assertFalse("Test CC0011 is returned -false", isReturned);
+		//normal
+		ResourceCentre.addCamcorder(camcorderList, cc2);
+		cc2.setIsAvailable(false);
+		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0012");
+		assertTrue("Test if CC0012 is returned- true", isReturned);
+		//error
+		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0013");
+		assertFalse("Test if CC0013 is non-existing and if returned - false", isReturned);
 	}
 
 	@Test
-	public void testDoReturnChromebook() {
+	public void testDoReturnChromebook() {  //Qisthina
 		// fail("Not yet implemented");
 		// write your code here
-
+		assertNotNull("Test if there is valid Chromebook arraylist to return to", chromebookList);
+	       
+        ResourceCentre.addChromebook(chromebookList, cb1);
+        Boolean returned = ResourceCentre.doReturnChromebook(chromebookList, "CB0011");
+        cb1.setIsAvailable(true);
+        assertFalse("Test that it is not okay to return", returned);
+        
+        ResourceCentre.addChromebook(chromebookList, cb2);
+        returned = ResourceCentre.doLoanChromebook(chromebookList, "CB0012", "27-07-21");
+        cb2.setIsAvailable(false);
+        assertTrue("Test that it is okay to return", returned);
+       
+        returned = ResourceCentre.doReturnChromebook(chromebookList, "CB0013");
+        assertFalse("Test that it is not okay to return", returned);
 	}
 
 	@After

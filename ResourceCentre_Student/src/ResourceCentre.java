@@ -181,7 +181,7 @@ public class ResourceCentre {
 		System.out.println("Camcorder added");
 	}
 	
-	public static Chromebook inputChromebook() {	
+	public static Chromebook inputChromebook() {	//Qisthina
 		Chromebook cb =null;
 		// write your code here
 		String tag = Helper.readString("Enter asset tag > ");
@@ -192,7 +192,7 @@ public class ResourceCentre {
 		return cb;
 		
 	}	
-	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
+	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {   //Qisthina
 		// write your code here
 		chromebookList.add(cb);
 		System.out.println("Chromebook added");
@@ -228,7 +228,7 @@ public class ResourceCentre {
 		}
 	}
 	
-	public static boolean doLoanChromebook(ArrayList<Chromebook> chromebookList, String tag, String dueDate) {
+	public static boolean doLoanChromebook(ArrayList<Chromebook> chromebookList, String tag, String dueDate) {   //Titus
 		// write your code here
 		boolean isLoaned = false;
 
@@ -245,7 +245,7 @@ public class ResourceCentre {
 		}
 		return isLoaned;
 	}
-	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
+	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {  //Titus
 		// write your code here
 		ResourceCentre.viewAllChromebook(chromebookList);
 		String tag = Helper.readString("Enter asset tag > ");
@@ -286,7 +286,7 @@ public class ResourceCentre {
 		}
 	}
 
-	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList,String tag){
+	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList,String tag){   //Vedha
 		boolean isReturned = false;
 		// write your code here
 		for (int i = 0; i < chromebookList.size(); i++) {
@@ -300,7 +300,7 @@ public class ResourceCentre {
 		}
 		return isReturned;
 	}
-	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {
+	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {    //Vedha
 		// write your code here
 		ResourceCentre.viewAllChromebook(chromebookList);
 		String tag = Helper.readString("Enter asset tag > ");
