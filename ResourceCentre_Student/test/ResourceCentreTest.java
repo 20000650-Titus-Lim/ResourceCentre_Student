@@ -144,7 +144,7 @@ assertNotNull("Test if there is valid Chromebook arraylist to loan from", chrome
 		assertFalse("Test that un-available item is Not ok to loan again?",ok);
 		
 		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB003", "7-7-2021");
-		assertFalse("Test that non-existing item is Not ok to loan again?",ok);
+		assertFalse("Test that non-existing item is not ok to loan again?",ok);
 		
 	}
 	
